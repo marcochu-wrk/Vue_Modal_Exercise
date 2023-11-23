@@ -1,8 +1,11 @@
 <template>
   <h1>{{ people.firstName }}</h1>
-  <Modal />
+  <div v-if="showModal">
+    <Modal :header=people.lastName :text=bodyText :age= people.age @close="toggleModal" />
+  </div>
+  <p>Welcome</p>
   <input type="text" ref="name">
-  <button @click="handleClick">Click Me</button>
+  <button @click="toggleModal">Open Modal</button>
 
 </template>
 
@@ -13,15 +16,15 @@ export default {
   components:{Modal},
   data (){
     return{
-      test: 'test',
-      people: {firstName:'My First Name',lastName:'My Last Name',age:20}
+      bodyText: 'This is some dummy text',
+      people: {firstName:'My First Name',lastName:'My Last Name',age:20},
+      showModal: false
     }
   },
   methods:{
-    handleClick(){
-      console.log(this.$refs.name)
-      this.$refs.name.classList.add('active')
-      this.$refs.name.focus()
+    toggleModal(){
+      this.showModal = !this.showModal
+      this.$refs.name.focus();
     }
   }
 }
@@ -35,5 +38,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+h1{
+  color: aqua;
 }
 </style>
