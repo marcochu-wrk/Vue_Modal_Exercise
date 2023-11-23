@@ -1,9 +1,10 @@
 <template>
     <div class="backdrop" @click.self="closeModal">
         <div class="modal" :class="{aboveAge: age > 15}">
-            <h1>{{header}}</h1>
-            <p>{{ text }}</p>
-            <p>{{ age }}</p>
+            <slot></slot>
+            <div class="action">
+                <slot name="links"></slot>
+            </div>
         </div>
     </div>
 </template>

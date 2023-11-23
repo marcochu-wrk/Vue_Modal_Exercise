@@ -1,7 +1,14 @@
 <template>
   <h1>{{ people.firstName }}</h1>
   <div v-if="showModal">
-    <Modal :header=people.lastName :text=bodyText :age= people.age @close="toggleModal" />
+    <Modal :age= people.age @close="toggleModal">
+      <h1>This is my heading</h1>
+      <p>This is my paragraph</p>
+      <template v-slot:links>
+        <a href="https://www.google.com/"> Sign Up</a>
+        <a href="https://www.google.com/"> More Info</a>
+      </template>
+    </Modal>
   </div>
   <p>Welcome</p>
   <input type="text" ref="name">
