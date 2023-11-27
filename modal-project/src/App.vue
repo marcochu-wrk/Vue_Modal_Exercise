@@ -1,4 +1,8 @@
 <template>
+  <div id="app">
+    <Navbar />
+    <router-view />
+  </div>
   <h1>{{ people.firstName }}</h1>
   <div v-if="showModal">
     <Modal :age= people.age @close="toggleModal">
@@ -18,9 +22,10 @@
 
 <script>
 import Modal from './components/Modal.vue'
+import Navbar from './components/Navbar.vue'
 export default {
   name: 'App',
-  components:{Modal},
+  components:{Modal, Navbar},
   data (){
     return{
       bodyText: 'This is some dummy text',
