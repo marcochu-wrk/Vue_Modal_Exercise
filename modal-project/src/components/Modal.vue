@@ -2,7 +2,7 @@
     <div class="backdrop" @click.self="closeModal">
         <div class="modal" :class="{aboveAge: age > 15}">
             <slot></slot>
-            <div class="action">
+            <div class="actions">
                 <slot name="links"></slot>
             </div>
         </div>
@@ -45,4 +45,17 @@ export default{
 .modal.aboveAge h1{
     color: white;
 }
+.modal .actions{
+    text-align: center;
+    margin: 30px 0 10px 0;
+}
+.modal .actions a{
+    color: white;
+    padding: 8px;
+    border: 1px solid white;
+    border-radius: 4px;
+    text-decoration: none;
+    margin: 10px;
+}
+
 </style>
